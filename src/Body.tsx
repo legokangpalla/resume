@@ -195,7 +195,8 @@ class Body extends PureComponent<Props> {
                 Hi, I'm a software engineer specializing in 3D graphics, high performance computing, native/web/mobile development.<br/><br/>
                 My approach to engineering is minimalism with focus in longevity and ease of maintanence, leveraging both open-source community and professional tools to minimize project scope. <br/><br/>
                 Striving for balance in practicality and performance, meticulously profiling projects for data-driven optimization process.<br/><br/>
-                I believe each project I produce is an asset not a technical debt to the company. 
+                I believe each project I produce is an asset not a technical debt to the company. <br/><br/>
+                Currently working and living in Daejon, South Korea.
               </Typography> 
               <Button size="small" href="https://bitbucket.org/legokangpalla/">bitbucket.org/legokangpalla</Button>
               <Button size="small" href="https://github.com/legokangpalla">github.com/legokangpalla</Button>
