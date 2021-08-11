@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {withStyles, WithStyles, createStyles, Theme} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Grid from '@material-ui/core/Grid';
 import Drawer from '@material-ui/core/Drawer';
-import { PureComponent } from 'react';
 
 const styles = (theme: Theme) => createStyles({
     header: {
@@ -47,7 +46,14 @@ const styles = (theme: Theme) => createStyles({
         [theme.breakpoints.up('md')]: {
             display: 'none',
         },
-    }
+    },
+    headerBar: {
+        // backgroundColor: theme.palette.background.default,
+        // backgroundColor: theme.palette.deepDark.main,
+        opacity: 0,
+
+        boxShadow: 'none',
+    },
     
 });
 enum Position
@@ -64,7 +70,7 @@ interface State{
 interface Props extends WithStyles<typeof styles> {
 }
 
-export class ResumeAppBar extends PureComponent<Props, State> {
+class ResumeAppBar extends PureComponent<Props, State> {
     state = {
         position: Position.Static,
         navigationItemClass: true,
@@ -94,13 +100,13 @@ export class ResumeAppBar extends PureComponent<Props, State> {
     //     }
     // }
     
-    _showDrawer () {
+    _showDrawer = () => {
         this.setState({
             isDrawerVisible: true
         })
     }
     
-    _hideDrawer () {
+    _hideDrawer = () => {
         this.setState({
             isDrawerVisible: false
         })
@@ -116,11 +122,11 @@ export class ResumeAppBar extends PureComponent<Props, State> {
         return (
             <div className={classes.header}>
                 <div className={classes.headerBackground}/>
-                <AppBar position="fixed">
+                <AppBar position="fixed" className = {classes.headerBar}>
                     <Toolbar>
                         <IconButton className={classes.hamburger}
                             // color="contrast"
-                            onClick={this._showDrawer.bind(this)}
+                            onClick={this._showDrawer}
                             aria-label="Menu">
                             <MenuIcon/>
                         </IconButton>
@@ -193,7 +199,5 @@ export class ResumeAppBar extends PureComponent<Props, State> {
     }
 }
 
-// ResumeAppBar.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
+
 export default withStyles(styles, {withTheme: true })(ResumeAppBar);

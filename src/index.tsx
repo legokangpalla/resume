@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+// theme
+declare module "@material-ui/core/styles/createPalette" {
+  interface Palette {    
+    deepDark: Palette["primary"];
+  }
+  interface PaletteOptions {    
+    deepDark: PaletteOptions["primary"];
+  } 
+}
+
+const theme = createTheme({
+    palette: {
+      // type: 'dark',
+      deepDark: {
+        main: '#000000'
+      },
+    },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App/>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

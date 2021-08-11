@@ -1,35 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {PureComponent} from 'react';
 import './App.css';
-import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import {withStyles, WithStyles, createStyles, Theme} from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 import ResumeAppBar from './ResumeAppBar';
 import Body from './Body';
 
-// theme
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#182e52',
-        },
-        secondary: {
-            main: '#f1eff1',
-        },
+
+const styles = (theme: Theme) => createStyles({
+    root: {
+        width: '100%',
+        backgroundColor: 'white',
+
     },
 });
 
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-        <div>
-            <ResumeAppBar/>
-            <Body/>
-        </div>
-    </ThemeProvider>
-  );
+interface Props extends WithStyles<typeof styles> {}
+
+class MainApp extends PureComponent<Props> {
+    render () {
+
+        const classes = this.props.classes;
+        return (
+            <Container className={classes.root}>
+                <ResumeAppBar/>
+                <Body/>
+            </Container>
+        );
+    }
 }
 
-export default App;
+export default withStyles(styles, {withTheme: true })(MainApp);
+
