@@ -7,8 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TestImg from './resources/icons/C10Icon.png'; // Tell webpack this JS file uses this image
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
 // import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import IconButton from '@material-ui/core/IconButton';
 import Chip from '@material-ui/core/Chip';
@@ -33,14 +33,19 @@ const styles = (theme: Theme) =>createStyles({
       transitionProperty: "width, height",
       transitionDuration: "0.5s, 0.5s",
       transitionDelay: "0.5s, 0s",
+      marginTop: 20, 
+      marginBottom: 20,
     },
     rootExpanded: {
-      height: 500,
+      height: "100%",
       width: "90%",
       transitionProperty: "width, height",
       transitionDuration: "0.5s, 0.5s",
-      transitionDelay: "0s, 0.5s",    },
-
+      transitionDelay: "0s, 0.5s",    
+    },
+    chipContainer: {
+      marginBottom: 5,
+    },
     mediaContainer:{
       width: __thumbnailSize,
       height: __thumbnailSize
@@ -49,11 +54,14 @@ const styles = (theme: Theme) =>createStyles({
       // paddingTop: '56.25%', // 16:9
       width: __thumbnailSize,
       height: __thumbnailSize,
-      marginLeft: "auto",
-      marginRight: "auto",
+      objectFit: 'contain',
+      // .MuiCardMedia-img:{
+      // objectFit: 'contain'
+      // }
+      // marginLeft: "auto",
+      // marginRight: "auto",
     },
     expand: {
-
       transform: 'rotate(0deg)',
       marginLeft: 0,
       transition: theme.transitions.create('transform', {
@@ -63,6 +71,13 @@ const styles = (theme: Theme) =>createStyles({
     expandOpen: {
       transform: 'rotate(180deg)',
     },
+
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
 });
 
 
@@ -71,10 +86,36 @@ interface State{
 };
 
 
-interface Props extends WithStyles<typeof styles> {
+export enum Language {
+  Javascript = "JScript",
+  Typescript = "TScript",
+  Cpp = "C++",
+  CSharp = "C#",
+  Flutter= "Flutter",
+  Dart= "Dart",
+  React= "React",
+  Wasm= "WASM",
+  CMake= "CMake",
+  Qt= "Qt",
+  OpenGL= "OpenGL",
+  OpenCV= "OpenCV",
+  Python= "Python",
+  Django= "Django",
+  UWP= "UWP",
 }
 
-class ProjectCard extends PureComponent<Props, State> {
+
+
+interface Props extends WithStyles<typeof styles> {
+  languages: Array<Language>,
+  date: string,
+  title: string,
+  subtitle: string,
+  imgSrc: string,
+  link?: string
+}
+
+class _ProjectCard extends PureComponent<Props, State> {
     state = {
         expanded: false,
     };
@@ -82,55 +123,80 @@ class ProjectCard extends PureComponent<Props, State> {
   handleExpandClick = () => {
     this.setState({expanded: !this.state.expanded});
   };
-  
+  _renderChip =  (lng: Language, index: number) => {
+    return (
+      <Chip label={lng as string} disabled variant="outlined" />
+   );
+  }
+  _renderLinkOrExpand =  () => {
+    if(this.props.link)
+    {
+      return (
+        <Button size="small" href={this.props.link} >Learn More</Button>
+      );
+    }
+    else
+    {
+      let expandedBttnName = this.props.classes.expand + " ";
+      expandedBttnName += this.state.expanded? this.props.classes.expandOpen : ""; 
+      return (
+        <IconButton
+          className={expandedBttnName}
+          onClick={this.handleExpandClick}
+          aria-expanded={this.state.expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>      
+      );
+    }
+  }
   render () {
       const classes = this.props.classes;
-      let expandedBttnName = classes.expand + " ";
-      expandedBttnName += this.state.expanded? classes.expandOpen : ""; 
+
       const rootName = this.state.expanded? classes.rootExpanded : classes.root;
       return (
         <Card className={rootName}>
           <Grid container spacing={3}>
             <Grid item xs>
-              <CardHeader
+              {/* <CardHeader
                 title="C10"
                 subheader="September 14, 2016"
-                
-              />
+              /> */}
               <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  3D LCD resin printer for dentistry
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                  {this.props.date}
                 </Typography>
-                <div >
-                  <Chip label="Basic" variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" />
-                </div>
-                                <IconButton
-                  className={expandedBttnName}
-                  onClick={this.handleExpandClick}
-                  aria-expanded={this.state.expanded}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              </CardContent>
+                <Typography variant="h5" component="h2">
+                  {this.props.title}
+                </Typography>
+                <Typography className={classes.pos} color="textSecondary">
+                  {this.props.subtitle}
+                </Typography>
+                {/* <Typography variant="body2" component="p">
+                  erwre
+                </Typography> */}
 
+                <div className={classes.chipContainer}>
+                  {/* <Chip label="Basic" variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" /> */}
+                  {
+                      this.props.languages && this.props.languages.map(this._renderChip)
+                  }
+                </div>
+                {this._renderLinkOrExpand()}
+              </CardContent>
             </Grid>
             <Grid item className={classes.mediaContainer} >
-              <CardMedia
-                className={classes.media}
-                image={TestImg}
-                title="Paella dish"
-              />
+              <img src={this.props.imgSrc}  className={classes.media} />
             </Grid>
           </Grid>
-
-
+          {this.props.children}
         </Card>
       );
     }
 }
 
-export default withStyles(styles, {withTheme: true })(ProjectCard);
+export const ProjectCard = withStyles(styles, {withTheme: true })(_ProjectCard);
