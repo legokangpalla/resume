@@ -10,7 +10,7 @@ import Body from './Body';
 const styles = (theme: Theme) => createStyles({
     root: {
         width: '100%',
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.background.default,
 
     },
 });

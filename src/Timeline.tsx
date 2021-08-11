@@ -18,10 +18,10 @@ const styles = (theme: Theme) => createStyles({
       },
   },
   barClass: {
-      height: 585,
+      height: 100,
       top: 80,
       [theme.breakpoints.down('md')]: {
-          height: 1300,
+          height: 300,
           top: 20,
           zIndex: -1
       },
@@ -71,8 +71,6 @@ class _Timeline extends PureComponent<Props> {
           year={experience.time}
         />
       </LRTimelineContainer>
-
-
    );
   }
   render () {

@@ -15,7 +15,7 @@ declare module "@material-ui/core/styles/createPalette" {
 
 const theme = createTheme({
     palette: {
-      // type: 'dark',
+      type: 'dark',
       deepDark: {
         main: '#000000'
       },

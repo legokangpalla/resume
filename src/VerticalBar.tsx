@@ -14,7 +14,7 @@ const styles = (theme: Theme) => createStyles({
     marginLeft: -2,
     position: 'absolute',
     left: '50%',
-    backgroundColor: colors.amber[100],
+    backgroundColor: theme.palette.common.white,
   },
 });
 

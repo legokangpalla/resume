@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import Grid from '@material-ui/core/Grid';
 import {withStyles, WithStyles, createStyles, Theme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -39,7 +40,14 @@ const styles = (theme: Theme) => createStyles({
   },
   container: {
     align: "center"
-  }
+  },
+
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
 });
 
 
@@ -64,11 +72,31 @@ class TimelineCard extends PureComponent<Props> {
         description
     } = this.props;
     return (
+
+
       <Grid className={classes.container} container direction="column" spacing={0}>
-        <div className={classes.date}>{year}</div>
-        <h3 className={classes.header3}>{company}</h3>
-        <h4 className={classes.header4}>{title}</h4>
-        <p className={classes.description}>{description}</p>
+
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          {year}
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {company}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {
+            description.split("\n").map(function(item, idx) {
+                return (
+                    <span key={idx}>
+                        {item}
+                        <br/>
+                    </span>
+                )
+            })
+          }
+        </Typography>
       </Grid>
     )
   }

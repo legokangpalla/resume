@@ -24,6 +24,7 @@ import Chip from '@material-ui/core/Chip';
 
 
 const __thumbnailSize = 200;
+const __thumbnailSizeRightMargin = -50;
 
 
 const styles = (theme: Theme) =>createStyles({
@@ -41,18 +42,21 @@ const styles = (theme: Theme) =>createStyles({
       width: "90%",
       transitionProperty: "width, height",
       transitionDuration: "0.5s, 0.5s",
-      transitionDelay: "0s, 0.5s",    
+      transitionDelay: "0s, 0.5s", 
+      marginTop: 20, 
+      marginBottom: 20,   
     },
     chipContainer: {
       marginBottom: 5,
     },
     mediaContainer:{
       width: __thumbnailSize,
-      height: __thumbnailSize
+      // right: "0px",
+      // height: __thumbnailSize + __thumbnailSizeRightMargin
     },
     media: {
       // paddingTop: '56.25%', // 16:9
-      width: __thumbnailSize,
+      width: __thumbnailSize + __thumbnailSizeRightMargin,
       height: __thumbnailSize,
       objectFit: 'contain',
       // .MuiCardMedia-img:{
@@ -102,6 +106,9 @@ export enum Language {
   Python= "Python",
   Django= "Django",
   UWP= "UWP",
+  UE4= "UE4",
+  SPICE="SPICE",
+
 }
 
 
@@ -159,10 +166,6 @@ class _ProjectCard extends PureComponent<Props, State> {
         <Card className={rootName}>
           <Grid container spacing={3}>
             <Grid item xs>
-              {/* <CardHeader
-                title="C10"
-                subheader="September 14, 2016"
-              /> */}
               <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                   {this.props.date}
@@ -173,15 +176,8 @@ class _ProjectCard extends PureComponent<Props, State> {
                 <Typography className={classes.pos} color="textSecondary">
                   {this.props.subtitle}
                 </Typography>
-                {/* <Typography variant="body2" component="p">
-                  erwre
-                </Typography> */}
 
                 <div className={classes.chipContainer}>
-                  {/* <Chip label="Basic" variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" />
-                  <Chip label="Disabled" disabled variant="outlined" /> */}
                   {
                       this.props.languages && this.props.languages.map(this._renderChip)
                   }
