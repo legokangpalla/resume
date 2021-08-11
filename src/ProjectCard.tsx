@@ -5,31 +5,57 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Grid from '@material-ui/core/Grid';
+import TestImg from './resources/icons/C10Icon.png'; // Tell webpack this JS file uses this image
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import IconButton from '@material-ui/core/IconButton';
+import Chip from '@material-ui/core/Chip';
 
 
+      // [theme.breakpoints.up('sm')]: {
+      //   width: "51%",
+
+      // },
+      // [theme.breakpoints.down('sm')]: {
+      //   width: "70%",
+      // },
 
 
+const __thumbnailSize = 200;
 
 
 const styles = (theme: Theme) =>createStyles({
     root: {
-      // maxWidth: 345,
-      width: "100%",
-      height: "100%"
+      height: __thumbnailSize,
+      width: "70%",
+      transitionProperty: "width, height",
+      transitionDuration: "0.5s, 0.5s",
+      transitionDelay: "0.5s, 0s",
+    },
+    rootExpanded: {
+      height: 500,
+      width: "90%",
+      transitionProperty: "width, height",
+      transitionDuration: "0.5s, 0.5s",
+      transitionDelay: "0s, 0.5s",    },
+
+    mediaContainer:{
+      width: __thumbnailSize,
+      height: __thumbnailSize
     },
     media: {
       // paddingTop: '56.25%', // 16:9
+      width: __thumbnailSize,
+      height: __thumbnailSize,
+      marginLeft: "auto",
+      marginRight: "auto",
     },
     expand: {
+
       transform: 'rotate(0deg)',
-      marginLeft: 'auto',
+      marginLeft: 0,
       transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
       }),
@@ -52,70 +78,56 @@ class ProjectCard extends PureComponent<Props, State> {
     state = {
         expanded: false,
     };
+
   handleExpandClick = () => {
     this.setState({expanded: !this.state.expanded});
   };
   
   render () {
-
-    
       const classes = this.props.classes;
-      let expandedBttnName = classes.expand;
+      let expandedBttnName = classes.expand + " ";
       expandedBttnName += this.state.expanded? classes.expandOpen : ""; 
+      const rootName = this.state.expanded? classes.rootExpanded : classes.root;
       return (
-        <Card className={classes.root}>
-          <CardHeader
-            title="Shrimp and Chorizo Paella"
-            subheader="September 14, 2016"
-          />
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/paella.jpg"
-            title="Paella dish"
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your
-              guests. Add 1 cup of frozen peas along with the mussels, if you like.
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton
-              className={expandedBttnName}
-              onClick={this.handleExpandClick}
-              aria-expanded={ this.state.expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={ this.state.expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Method:</Typography>
-              <Typography paragraph>
-                Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                minutes.
-              </Typography>
-              <Typography paragraph>
-                Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-                heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-                browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-                and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-              </Typography>
-              <Typography paragraph>
-                Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-                without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-                medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-                again without stirring, until mussels have opened and rice is just tender, 5 to 7
-                minutes more. (Discard any mussels that don’t open.)
-              </Typography>
-              <Typography>
-                Set aside off of the heat to let rest for 10 minutes, and then serve.
-              </Typography>
-            </CardContent>
-          </Collapse>
+        <Card className={rootName}>
+          <Grid container spacing={3}>
+            <Grid item xs>
+              <CardHeader
+                title="C10"
+                subheader="September 14, 2016"
+                
+              />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  3D LCD resin printer for dentistry
+                </Typography>
+                <div >
+                  <Chip label="Basic" variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" />
+                  <Chip label="Disabled" disabled variant="outlined" />
+                </div>
+                                <IconButton
+                  className={expandedBttnName}
+                  onClick={this.handleExpandClick}
+                  aria-expanded={this.state.expanded}
+                  aria-label="show more"
+                >
+                  <ExpandMoreIcon />
+                </IconButton>
+              </CardContent>
+
+            </Grid>
+            <Grid item className={classes.mediaContainer} >
+              <CardMedia
+                className={classes.media}
+                image={TestImg}
+                title="Paella dish"
+              />
+            </Grid>
+          </Grid>
+
+
         </Card>
       );
     }
