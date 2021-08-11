@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/resume/static/css/main.afd7172b.chunk.css",
+    "main.js": "/resume/static/js/main.51c48cad.chunk.js",
+    "main.js.map": "/resume/static/js/main.51c48cad.chunk.js.map",
+    "runtime-main.js": "/resume/static/js/runtime-main.57c0d280.js",
+    "runtime-main.js.map": "/resume/static/js/runtime-main.57c0d280.js.map",
+    "static/js/2.1fd8da3b.chunk.js": "/resume/static/js/2.1fd8da3b.chunk.js",
+    "static/js/2.1fd8da3b.chunk.js.map": "/resume/static/js/2.1fd8da3b.chunk.js.map",
+    "static/js/3.491979e8.chunk.js": "/resume/static/js/3.491979e8.chunk.js",
+    "static/js/3.491979e8.chunk.js.map": "/resume/static/js/3.491979e8.chunk.js.map",
+    "index.html": "/resume/index.html",
+    "static/css/main.afd7172b.chunk.css.map": "/resume/static/css/main.afd7172b.chunk.css.map",
+    "static/js/2.1fd8da3b.chunk.js.LICENSE.txt": "/resume/static/js/2.1fd8da3b.chunk.js.LICENSE.txt",
+    "static/media/C10Icon.6e15c803.png": "/resume/static/media/C10Icon.6e15c803.png",
+    "static/media/ds0.PNG": "/resume/static/media/ds0.51b308e8.PNG",
+    "static/media/eform.png": "/resume/static/media/eform.fb3624d2.png",
+    "static/media/eform2.png": "/resume/static/media/eform2.6559632e.png",
+    "static/media/img0.d416d56c.png": "/resume/static/media/img0.d416d56c.png",
+    "static/media/main_menu.png": "/resume/static/media/main_menu.560229fe.png",
+    "static/media/ozEFormIcon.e8103118.png": "/resume/static/media/ozEFormIcon.e8103118.png",
+    "static/media/print_info.png": "/resume/static/media/print_info.0e971780.png",
+    "static/media/print_menu.png": "/resume/static/media/print_menu.c6ca3d6c.png",
+    "static/media/setting_menu.png": "/resume/static/media/setting_menu.cb2e266b.png",
+    "static/media/site0.PNG": "/resume/static/media/site0.376e89ed.PNG",
+    "static/media/site1.PNG": "/resume/static/media/site1.022c0080.PNG",
+    "static/media/w0.PNG": "/resume/static/media/w0.32a53bd3.PNG",
+    "static/media/w1.PNG": "/resume/static/media/w1.9deff4cc.PNG",
+    "static/media/web_menu.jpg": "/resume/static/media/web_menu.a973dfc5.jpg",
+    "static/media/weddingIcon.406e4849.gif": "/resume/static/media/weddingIcon.406e4849.gif",
+    "static/media/wip.ac095f73.svg": "/resume/static/media/wip.ac095f73.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57c0d280.js",
+    "static/js/2.1fd8da3b.chunk.js",
+    "static/css/main.afd7172b.chunk.css",
+    "static/js/main.51c48cad.chunk.js"
+  ]
+}
