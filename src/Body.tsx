@@ -1,7 +1,7 @@
 
 import React, {PureComponent} from 'react';
 import {withStyles, WithStyles, createStyles, Theme} from '@material-ui/core/styles';
-import {ProjectCard, Language} from './ProjectCard';
+import {ProjectCard, Language, Mediatype} from './ProjectCard';
 import {Timeline, EventInfo}from './Timeline'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -95,6 +95,13 @@ const c10 ={
   date: "2019-2020",
   imgSrc: c10Thumb,
   languages: [Language.Cpp, Language.Qt, Language.React],
+  mediaInfo: [
+    {type: Mediatype.img, src: require("./resources/projects/C10/main_menu.png").default as string, desc: "Firmware main menu."},
+    {type: Mediatype.img, src: require("./resources/projects/C10/print_info.png").default as string, desc: "Firmware print info UI."},
+    {type: Mediatype.img, src: require("./resources/projects/C10/print_menu.png").default as string, desc: "Firmware main UI."},
+    {type: Mediatype.img, src: require("./resources/projects/C10/setting_menu.png").default as string, desc: "Firmware settings menu."},
+    {type: Mediatype.img, src: require("./resources/projects/C10/web_menu.jpg").default as string, desc: "Web UI."},
+  ]
 }
 const ds ={
   title: "DentSlicer",
@@ -102,6 +109,17 @@ const ds ={
   date: "2019-2021",
   imgSrc: dsThumb,
   languages: [Language.Cpp, Language.Qt, Language.OpenGL, Language.CMake],
+    mediaInfo: [
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/HJp02qNoPMo", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/dMVU2Z66J1w", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/RxIfdI1Bq5k", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/MgAci5Ix9T4", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/D8aGtxvl67g", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/qBB_EighESM", desc: "Firmware main menu."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/rbJxayQYOGI", desc: "Firmware main menu."},
+    {type: Mediatype.img, src: require("./resources/projects/DentSlicer/ds0.PNG").default as string, desc: "Firmware print info UI."},
+
+  ]
 }
 const hixSite ={
   title: "Hix.co.kr",
@@ -227,17 +245,13 @@ class Body extends PureComponent<Props> {
       
                     </Typography>  
                     <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
-                      Qt application framework running on top of X server with a seperate MCU program to handle motor control and various peripheral activities.<br/>
-                      <br/>
-                      Both C10 project and Dentslicer projects share many of the basic UI elements which delegated most of control functionalities to C++ for increased static check and runtime safety. <br/>
-                      <br/>
-                      Included a web server and basic IOT functionality to allow remote usage and better interfacing with a user PC. <br/>
-                      IOT functionality is also used for over-the-air updates and updating resin database.<br/>
-                      <br/>
-                      Learned basic hardware UX planning and update/factory reset protocol on kernel(non-user) level.<br/>
-                      <br/>
-                      In hardware side, contributed to initial LED light simulator(UWP) to achieve 90% or above UV distribution. Written in UWP.<br/>
-                      Hardware accelerated SDF(signed distance field) based thickness alteration. Used to shrink or thicken model accurately post-slice for different resins.<br/>
+                      Qt application framework running on top of X server with a seperate MCU program to handle motor control and various peripheral activities.<br/><br/>
+                      Both C10 project and Dentslicer projects share many of the basic UI elements which delegated most of control functionalities to C++ for increased static check and runtime safety. <br/><br/>
+                      Included a web server and basic IOT functionality to allow remote usage and better interfacing with a user PC. <br/><br/>
+                      IOT functionality is also used for over-the-air updates and updating resin database.<br/><br/>
+                      Learned basic hardware UX planning and update/factory reset protocol on kernel(non-user) level.<br/><br/>
+                      In hardware side, contributed to initial LED light simulator(UWP) to achieve 90% or above UV distribution. Written in UWP.<br/><br/>
+                      Hardware accelerated SDF(signed distance field) based thickness alteration. Used to shrink or thicken model accurately post-slice for different resins.<br/><br/>
                     </Typography>               
                   </Grid>
                 </Grid>
@@ -317,7 +331,7 @@ class Body extends PureComponent<Props> {
                       Most funtionalities are contained within application launcher(customized flutter engine) and the main application, even touch calibration data itself.<br/><br/>
                       Very little kernel-level functions are used, even periphery.<br/><br/>
                       MCU board has been removed, to be replaced with cheap H-bridge circuit and multi-channel MOSFETs(this might not even be neccessary).<br/><br/>
-                      Remaining GPIO on our SBC board(same as C10) and even hardware PWMS have been plenty for all our purposes.<br/><br/>
+                      Remaining GPIO on our SBC board(same as C10) and even hardware PWMs have been plenty for all our purposes.<br/><br/>
                       Working with Dart and Flutter have been immensely pleasurable.<br/><br/>
 
                     </Typography>  

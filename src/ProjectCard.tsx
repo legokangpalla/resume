@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import {withStyles, WithStyles, createStyles, Theme} from '@material-ui/core/styles';
+import {withStyles, WithStyles, createStyles, Theme, makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,6 +12,12 @@ import Button from '@material-ui/core/Button';
 // import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import IconButton from '@material-ui/core/IconButton';
 import Chip from '@material-ui/core/Chip';
+import Collapse from '@material-ui/core/Collapse';
+import { Carousel } from 'react-responsive-carousel';
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+import './customCarousel.css'
+// import { Carousel } from 'react-responsive-carousel/lib/js'
+
 
 
       // [theme.breakpoints.up('sm')]: {
@@ -27,22 +33,23 @@ const __thumbnailSize = 200;
 const __thumbnailSizeRightMargin = -50;
 
 
+
+
+
 const styles = (theme: Theme) =>createStyles({
+
     root: {
-      height: __thumbnailSize,
       width: "70%",
-      transitionProperty: "width, height",
-      transitionDuration: "0.5s, 0.5s",
-      transitionDelay: "0.5s, 0s",
+      transitionProperty: "width",
+      transitionDuration: "0.2s",
+      transitionDelay: "0.5s",
       marginTop: 20, 
       marginBottom: 20,
     },
     rootExpanded: {
-      height: "100%",
       width: "90%",
-      transitionProperty: "width, height",
-      transitionDuration: "0.5s, 0.5s",
-      transitionDelay: "0s, 0.5s", 
+      transitionProperty: "width",
+      transitionDuration: "0.2s",
       marginTop: 20, 
       marginBottom: 20,   
     },
@@ -51,19 +58,13 @@ const styles = (theme: Theme) =>createStyles({
     },
     mediaContainer:{
       width: __thumbnailSize,
-      // right: "0px",
-      // height: __thumbnailSize + __thumbnailSizeRightMargin
     },
     media: {
       // paddingTop: '56.25%', // 16:9
       width: __thumbnailSize + __thumbnailSizeRightMargin,
       height: __thumbnailSize,
       objectFit: 'contain',
-      // .MuiCardMedia-img:{
-      // objectFit: 'contain'
-      // }
-      // marginLeft: "auto",
-      // marginRight: "auto",
+
     },
     expand: {
       transform: 'rotate(0deg)',
@@ -82,6 +83,12 @@ const styles = (theme: Theme) =>createStyles({
     pos: {
       marginBottom: 12,
     },
+    ytbFrame:
+    {
+      width: "auto",
+      height: 600,
+
+    }
 });
 
 
@@ -89,7 +96,11 @@ interface State{
     expanded: boolean,
 };
 
-
+export enum Mediatype
+{
+  ytb,
+  img
+}
 export enum Language {
   Javascript = "JScript",
   Typescript = "TScript",
@@ -110,22 +121,27 @@ export enum Language {
   SPICE="SPICE",
 
 }
+interface MediaInfo{
+ type: Mediatype,
+ src: string,
+  desc: string
+}
 
 
-
-interface Props extends WithStyles<typeof styles> {
+interface Props  extends WithStyles<typeof styles>{
   languages: Array<Language>,
   date: string,
   title: string,
   subtitle: string,
   imgSrc: string,
   link?: string
+  mediaInfo?: Array<MediaInfo>
 }
 
 class _ProjectCard extends PureComponent<Props, State> {
-    state = {
-        expanded: false,
-    };
+  state = {
+      expanded: false,
+  };
 
   handleExpandClick = () => {
     this.setState({expanded: !this.state.expanded});
@@ -135,6 +151,29 @@ class _ProjectCard extends PureComponent<Props, State> {
       <Chip label={lng as string} disabled variant="outlined" />
    );
   }
+
+  _renderMedia =  (info: MediaInfo, index: number) => {
+
+    if(info.type === Mediatype.ytb )
+    {
+      return (
+        <div key={index}>
+          <iframe className={this.props.classes.ytbFrame} src={info.src} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+          <p className="legend">{info.desc}</p>
+        </div>
+     );
+    }
+    else{
+      return (
+        <div key={index}>
+         <img alt="" src={info.src} />
+          <p className="legend">{info.desc}</p>
+        </div>
+     );
+    }
+
+  }
+
   _renderLinkOrExpand =  () => {
     if(this.props.link)
     {
@@ -160,7 +199,11 @@ class _ProjectCard extends PureComponent<Props, State> {
   }
   render () {
       const classes = this.props.classes;
-
+      let media;
+      if(this.props.mediaInfo)
+      {
+        media = this.props.mediaInfo!.map(this._renderMedia);
+      }
       const rootName = this.state.expanded? classes.rootExpanded : classes.root;
       return (
         <Card className={rootName}>
@@ -189,7 +232,17 @@ class _ProjectCard extends PureComponent<Props, State> {
               <img src={this.props.imgSrc}  className={classes.media} />
             </Grid>
           </Grid>
-          {this.props.children}
+         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Carousel>
+              {
+                  this.props.mediaInfo && this.props.mediaInfo!.map(this._renderMedia)
+              }
+
+            </Carousel>
+            {/* {this.props.children} */}
+          </CardContent>
+        </Collapse>
         </Card>
       );
     }
