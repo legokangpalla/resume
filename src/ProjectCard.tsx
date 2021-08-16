@@ -240,7 +240,7 @@ class _ProjectCard extends PureComponent<Props, State> {
               }
 
             </Carousel>
-            {/* {this.props.children} */}
+            {this.props.children}
           </CardContent>
         </Collapse>
         </Card>

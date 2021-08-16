@@ -109,16 +109,15 @@ const ds ={
   date: "2019-2021",
   imgSrc: dsThumb,
   languages: [Language.Cpp, Language.Qt, Language.OpenGL, Language.CMake],
-    mediaInfo: [
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/HJp02qNoPMo", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/dMVU2Z66J1w", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/RxIfdI1Bq5k", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/MgAci5Ix9T4", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/D8aGtxvl67g", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/qBB_EighESM", desc: "Firmware main menu."},
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/rbJxayQYOGI", desc: "Firmware main menu."},
-    {type: Mediatype.img, src: require("./resources/projects/DentSlicer/ds0.PNG").default as string, desc: "Firmware print info UI."},
-
+  mediaInfo: [
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/HJp02qNoPMo", desc: "Model builder with auto-repair, auto-leveling, auto-smoothing."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/dMVU2Z66J1w", desc: "Support generation using ray-casting, various clipping algorithms."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/RxIfdI1Bq5k", desc: "Labeling using BVH accelerated CSG algorithm + ray-casted depth estimation."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/MgAci5Ix9T4", desc: "Freecut using CSG algorithms + BVH acceleration."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/D8aGtxvl67g", desc: "Arranging using polygonal+ box fit algorithms."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/qBB_EighESM", desc: "Face extension using DCEL(with const time access) structure + two manifold surface algorithms."},
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/rbJxayQYOGI", desc: "GPU slicer using stencil operations + face culling"},
+    {type: Mediatype.img, src: require("./resources/projects/DentSlicer/ds0.PNG").default as string, desc: "Socket based license instance."},
   ]
 }
 const hixSite ={
@@ -127,6 +126,12 @@ const hixSite ={
   date: "2020-2021",
   imgSrc: hixThumb,
   languages: [Language.Django, Language.Javascript, Language.React, Language.Python],
+  mediaInfo: [
+    {type: Mediatype.img, src: require("./resources/projects/HixSite/site0.PNG").default as string, desc: "Landing"},
+    {type: Mediatype.img, src: require("./resources/projects/HixSite/site1.PNG").default as string, desc: "OAuth Login"},
+
+  ]
+  
 }
 const w10 ={
   title: "W10",
@@ -134,6 +139,10 @@ const w10 ={
   date: "2021~",
   imgSrc: w10Thumb,
   languages: [Language.Dart, Language.Flutter, Language.SPICE],
+  mediaInfo: [
+    {type: Mediatype.img, src: require("./resources/projects/W10/w0.PNG").default as string, desc: "Firmware main UI."},
+    {type: Mediatype.img, src: require("./resources/projects/W10/w1.PNG").default as string, desc: "Firmware progress UI."},
+  ]
 }
 const wedding ={
   title: "Wedding Site",
@@ -149,6 +158,10 @@ const eForm ={
   date: "2016-2018",
   imgSrc: efThumb,
   languages: [Language.Cpp, Language.Javascript, Language.OpenCV, Language.UWP],
+  mediaInfo: [
+    {type: Mediatype.img, src: require("./resources/projects/eForm/eform.png").default as string, desc: "OZ eForm"},
+    {type: Mediatype.img, src: require("./resources/projects/eForm/eform2.png").default as string, desc: "demo"},
+  ]
 }
 const farflung ={
   title: "FarflungUE4",
@@ -156,8 +169,10 @@ const farflung ={
   date: "2018~",
   imgSrc: ffThumb,
   languages: [Language.Cpp, Language.UE4],
+  mediaInfo: [
+    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/glakdBOnvLw", desc: "Galaxy generation from surrogate model."},
+  ]
 }
-
 
 class Body extends PureComponent<Props> {
 
@@ -228,161 +243,89 @@ class Body extends PureComponent<Props> {
               <Timeline experiences={careerData}></Timeline>
               <SectionHeader title="Projects"/>
               <ProjectCard {...c10}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <img src={require("./resources/projects/C10/main_menu.png").default}  className={classes.media} />
-                      <img src={require("./resources/projects/C10/print_info.png").default}  className={classes.media} />
-                      <img src={require("./resources/projects/C10/print_menu.png").default}  className={classes.media} />
-                      <img src={require("./resources/projects/C10/setting_menu.png").default}  className={classes.media} />
-                      <img src={require("./resources/projects/C10/web_menu.jpg").default}  className={classes.media} />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h5" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      Role: PM, senior engineer.<br/>
-                      Product: firmware for 3D printer.<br/>
-      
-                    </Typography>  
-                    <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
-                      Qt application framework running on top of X server with a seperate MCU program to handle motor control and various peripheral activities.<br/><br/>
-                      Both C10 project and Dentslicer projects share many of the basic UI elements which delegated most of control functionalities to C++ for increased static check and runtime safety. <br/><br/>
-                      Included a web server and basic IOT functionality to allow remote usage and better interfacing with a user PC. <br/><br/>
-                      IOT functionality is also used for over-the-air updates and updating resin database.<br/><br/>
-                      Learned basic hardware UX planning and update/factory reset protocol on kernel(non-user) level.<br/><br/>
-                      In hardware side, contributed to initial LED light simulator(UWP) to achieve 90% or above UV distribution. Written in UWP.<br/><br/>
-                      Hardware accelerated SDF(signed distance field) based thickness alteration. Used to shrink or thicken model accurately post-slice for different resins.<br/><br/>
-                    </Typography>               
-                  </Grid>
-                </Grid>
+                <Typography variant="h5" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  Role: PM, senior engineer.<br/>
+                  Product: firmware for 3D printer.<br/>
+
+                </Typography>  
+                <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
+                  Qt application framework running on top of X server with a seperate MCU program to handle motor control and various peripheral activities.<br/><br/>
+                  Both C10 project and Dentslicer projects share many of the basic UI elements which delegated most of control functionalities to C++ for increased static check and runtime safety. <br/><br/>
+                  Included a web server and basic IOT functionality to allow remote usage and better interfacing with a user PC. <br/><br/>
+                  IOT functionality is also used for over-the-air updates and updating resin database.<br/><br/>
+                  Learned basic hardware UX planning and update/factory reset protocol on kernel(non-user) level.<br/><br/>
+                  In hardware side, contributed to initial LED light simulator(UWP) to achieve 90% or above UV distribution. Written in UWP.<br/><br/>
+                  Hardware accelerated SDF(signed distance field) based thickness alteration. Used to shrink or thicken model accurately post-slice for different resins.<br/><br/>
+                </Typography>               
               </ProjectCard>
               <ProjectCard {...ds}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/HJp02qNoPMo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/dMVU2Z66J1w" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/RxIfdI1Bq5k" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/MgAci5Ix9T4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/D8aGtxvl67g" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/qBB_EighESM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/rbJxayQYOGI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                     <img src={require("./resources/projects/DentSlicer/ds0.PNG").default}  className={classes.media} />
+                <Typography variant="h5" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  Role: PM, main engineer.<br/>
+                  Product: dental CAD<br/>
 
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h5" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      Role: PM, main engineer.<br/>
-                      Product: dental CAD<br/>
-      
-                    </Typography>  
-                    <Typography variant="h5" className={classes.bodyTxt} color="textPrimary">
-                      Windows native application built on Qt. 3D elements were later converted to OpenGL + GLFW.<br/><br/>
-                      Also, product authentication is user instance based! So you are automatically logged out when accessing from different computer.<br/><br/>
-                    </Typography>     
-                    <Typography variant="h5" className={classes.bodyTxt} color="textPrimary">
-                      Technologies used:<br/>
-                    </Typography>   
-                    <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
-                      Ray-casting was used extensively for both collision detection and interior/exterior classification.<br/><br/>
-                      Clipping algorithms and wound-count used for graphical slice analysis, later replaced by GPU accelerated uniform sampling.<br/><br/>
-                      BVH and AABB for general purpose accelerators, used pretty much everywhere.<br/><br/>
-                      Multisampling and random dithering for both anti-aliasing and degenerative case handling.<br/><br/>
-                      Greedy mesh repair algorithm(uses accelerator for more practical performace).<br/><br/>
-                      Signed Distance Field for generating uniform sampled grid.<br/><br/>
-                      Marching cubes and poisson reconstruction for both repair, CSG, and offsetting.<br/><br/>
-                      Automated differentiation library for better degenerate handling and performance.<br/><br/>
-                    </Typography> 
-                  </Grid>
-                </Grid>
+                </Typography>  
+                <Typography variant="h5" className={classes.bodyTxt} color="textPrimary">
+                  Windows native application built on Qt. 3D elements were later converted to OpenGL + GLFW.<br/><br/>
+                  Also, product authentication is user instance based! So you are automatically logged out when accessing from different computer.<br/><br/>
+                </Typography>     
+                <Typography variant="h5" className={classes.bodyTxt} color="textPrimary">
+                  Technologies used:<br/>
+                </Typography>   
+                <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
+                  Ray-casting was used extensively for both collision detection and interior/exterior classification.<br/><br/>
+                  Clipping algorithms and wound-count used for graphical slice analysis, later replaced by GPU accelerated uniform sampling.<br/><br/>
+                  BVH and AABB for general purpose accelerators, used pretty much everywhere.<br/><br/>
+                  Multisampling and random dithering for both anti-aliasing and degenerative case handling.<br/><br/>
+                  Greedy mesh repair algorithm(uses accelerator for more practical performace).<br/><br/>
+                  Signed Distance Field for generating uniform sampled grid.<br/><br/>
+                  Marching cubes and poisson reconstruction for both repair, CSG, and offsetting.<br/><br/>
+                  Automated differentiation library for better degenerate handling and performance.<br/><br/>
+                </Typography> 
               </ProjectCard>
               <ProjectCard {...hixSite}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <img src={require("./resources/projects/HixSite/site0.PNG").default}  className={classes.media} />
-                      <img src={require("./resources/projects/HixSite/site1.PNG").default}  className={classes.media} />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      Role: PM, senior engineer.<br/><br/>
-                      Company site with OAuth based social log-in.<br/><br/>
-                      Socket based product instance, so that user can install software on multiple hardwares, but only one concurrent instance is allowed per license.<br/><br/>
-                      Resin database.<br/><br/>
-                      Product purchase and automated billing, CC info is stored in secured 3rd party provider, token based.<br/><br/>
-                    </Typography>  
-                  </Grid>
-                </Grid>
+                <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  Role: PM, senior engineer.<br/><br/>
+                  Company site with OAuth based social log-in.<br/><br/>
+                  Socket based product instance, so that user can install software on multiple hardwares, but only one concurrent instance is allowed per license.<br/><br/>
+                  Resin database.<br/><br/>
+                  Product purchase and automated billing, CC info is stored in secured 3rd party provider, token based.<br/><br/>
+                </Typography>  
               </ProjectCard>
               <ProjectCard {...w10}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <img src={require("./resources/projects/W10/w0.PNG").default}  className={classes.media} />
-                      <img src={require("./resources/projects/W10/w1.PNG").default}  className={classes.media} />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      Product: firmware for 3D printer washer.<br/><br/>
-                      Pretty much what I think C10 firmware should have been, based on experiences from C10 of course.<br/><br/>
-                      Most funtionalities are contained within application launcher(customized flutter engine) and the main application, even touch calibration data itself.<br/><br/>
-                      Very little kernel-level functions are used, even periphery.<br/><br/>
-                      MCU board has been removed, to be replaced with cheap H-bridge circuit and multi-channel MOSFETs(this might not even be neccessary).<br/><br/>
-                      Remaining GPIO on our SBC board(same as C10) and even hardware PWMs have been plenty for all our purposes.<br/><br/>
-                      Working with Dart and Flutter have been immensely pleasurable.<br/><br/>
-
-                    </Typography>  
-                  </Grid>
-                </Grid>
+                <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  Product: firmware for 3D printer washer.<br/><br/>
+                  Pretty much what I think C10 firmware should have been, based on experiences from C10 of course.<br/><br/>
+                  Most funtionalities are contained within application launcher(customized flutter engine) and the main application, even touch calibration data itself.<br/><br/>
+                  Very little kernel-level functions are used, even periphery.<br/><br/>
+                  MCU board has been removed, to be replaced with cheap H-bridge circuit and multi-channel MOSFETs(this might not even be neccessary).<br/><br/>
+                  Remaining GPIO on our SBC board(same as C10) and even hardware PWMs have been plenty for all our purposes.<br/><br/>
+                  Working with Dart and Flutter have been immensely pleasurable.<br/><br/>
+                </Typography>  
               </ProjectCard>
               <ProjectCard {...wedding}>
               </ProjectCard>
               <ProjectCard {...eForm}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <img src={require("./resources/projects/eForm/eform.png").default}  className={classes.media} />
-                      <img src={require("./resources/projects/eForm/eform2.png").default}  className={classes.media} />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      Role: UWP/backend engineer.<br/><br/>
-                      Pretty much all-in-one digital form submission application.<br/><br/>
-                      Supports pretty much all types of inputs from boring texts, numbers, and dates to camera capture(with image recognition!), barcode/seal scan, sign with pen(touch) with pressure, GPS(yes really!), image editor(MSPaint at your finger tips!), and too many to list.<br/><br/>
-                      Supports existing UI in form of web(with OzToto Framework, hybrid app) or PDF(by automatically embedding each pages to the form.)<br/><br/>
-                      Input validation and data submission built in!<br/><br/>
-                      Various standard report tools like db data into various tables etc.<br/><br/>
-                      Scripting in our own OZ scripting language or Javascript.<br/><br/>
-                      Custom UI and application(it's a control library so you can embed it in whatever UWP application you are building).<br/><br/>
-                    </Typography>  
-                    <Button size="small" href="https://www.microsoft.com/en-au/p/oz-mobile/9wzdncrdjj7s?">Link to demo</Button>
-
-                  </Grid>
-                </Grid>
+                <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  Role: UWP/backend engineer.<br/><br/>
+                  Pretty much all-in-one digital form submission application.<br/><br/>
+                  Supports pretty much all types of inputs from boring texts, numbers, and dates to camera capture(with image recognition!), barcode/seal scan, sign with pen(touch) with pressure, GPS(yes really!), image editor(MSPaint at your finger tips!), and too many to list.<br/><br/>
+                  Supports existing UI in form of web(with OzToto Framework, hybrid app) or PDF(by automatically embedding each pages to the form.)<br/><br/>
+                  Input validation and data submission built in!<br/><br/>
+                  Various standard report tools like db data into various tables etc.<br/><br/>
+                  Scripting in our own OZ scripting language or Javascript.<br/><br/>
+                  Custom UI and application(it's a control library so you can embed it in whatever UWP application you are building).<br/><br/>
+                </Typography>  
+                <Button size="small" href="https://www.microsoft.com/en-au/p/oz-mobile/9wzdncrdjj7s?">Link to demo</Button>
               </ProjectCard>
               <ProjectCard {...farflung}>
-                <Grid container spacing={3}>
-                  <Grid  item xs={6}>
-                    <Grid direction={'column'} >
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/glakdBOnvLw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
-                      UE4 Port of my previous Farflung project. Procedural galaxy generation. WIP<br/><br/>
-                      Currently working features:<br/><br/>
-                      Realistic spiral shape using elliptical paths(Wave density theorem).<br/><br/>
-                      Uses pre-generated surrogate model to procedurally generate stars.<br/><br/>
-                      Markov star name generation.<br/><br/>
-                      Modular, but all modules now depend on UE4 core library.<br/><br/>
-                    </Typography>  
-                    <Button size="small" href="https://www.microsoft.com/en-au/p/oz-mobile/9wzdncrdjj7s?">Link to demo</Button>
-                  </Grid>
-                </Grid>
+                <Typography variant="h6" component="h2"  className={classes.bodyTxt} color="textPrimary">
+                  UE4 Port of my previous Farflung project. Procedural galaxy generation. WIP<br/><br/>
+                  Currently working features:<br/><br/>
+                  Realistic spiral shape using elliptical paths(Wave density theorem).<br/><br/>
+                  Uses pre-generated surrogate model to procedurally generate stars.<br/><br/>
+                  Markov star name generation.<br/><br/>
+                  Modular, but all modules now depend on UE4 core library.<br/><br/>
+                </Typography>  
               </ProjectCard>
               <SectionHeader title="Skills"/>
               {this._renderSkill("English", 100)}
