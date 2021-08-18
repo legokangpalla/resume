@@ -139,7 +139,7 @@ const ds ={
   subtitle: "3D model builder, dental CAD, slicer",
   date: "2019-2021",
   imgSrc: dsThumb,
-  languages: [Language.Cpp, Language.Qt, Language.OpenGL, Language.CMake],
+  languages: [Language.Cpp, Language.Qt, Language.OpenGL, Language.CMake, Language.GLSL],
   mediaInfo: [
     {type: Mediatype.ytb, src: "https://www.youtube.com/embed/HJp02qNoPMo", desc: "Model builder with auto-repair, auto-leveling, auto-smoothing."},
     {type: Mediatype.ytb, src: "https://www.youtube.com/embed/dMVU2Z66J1w", desc: "Support generation using ray-casting, various clipping algorithms."},
