@@ -48,7 +48,6 @@ const styles = (theme: Theme) =>createStyles({
 
       [theme.breakpoints.down('sm')]: {
         width: "100%",
-
       },
     },
     rootExpanded: {

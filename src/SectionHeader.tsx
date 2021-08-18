@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = (theme: Theme) => createStyles({
   sectionTitle: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     fontSize: 34,
     lineHeight: 1.2,
     fontWeight: 600,

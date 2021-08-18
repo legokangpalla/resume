@@ -27,6 +27,7 @@ const styles = (theme: Theme) => createStyles({
         // marginRight: '20px',
     },
     content: {
+        backgroundColor: theme.palette.background.default,
         zIndex: 2,
         position: 'relative',
         paddingRight: 10,
@@ -64,7 +65,7 @@ const styles = (theme: Theme) => createStyles({
       width: "100%",
     },
   hello: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     fontSize: 34,
     lineHeight: 1.2,
     fontWeight: 600,
@@ -79,7 +80,7 @@ const styles = (theme: Theme) => createStyles({
   },
 
   skillTxt: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     fontSize: 13,
     lineHeight: 1,
     fontWeight: 600,
