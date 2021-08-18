@@ -29,8 +29,8 @@ import './customCarousel.css'
       // },
 
 
-const __thumbnailSize = 200;
-const __thumbnailSizeRightMargin = -50;
+const __thumbnailSize = 150;
+const __thumbnailSizeRightMargin = -30;
 
 
 
@@ -45,6 +45,11 @@ const styles = (theme: Theme) =>createStyles({
       transitionDelay: "0.5s",
       marginTop: 20, 
       marginBottom: 20,
+
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+
+      },
     },
     rootExpanded: {
       width: "90%",
@@ -52,6 +57,9 @@ const styles = (theme: Theme) =>createStyles({
       transitionDuration: "0.2s",
       marginTop: 20, 
       marginBottom: 20,   
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+      },
     },
     chipContainer: {
       marginBottom: 5,
@@ -77,12 +85,6 @@ const styles = (theme: Theme) =>createStyles({
       transform: 'rotate(180deg)',
     },
 
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
     ytbFrame:
     {
       width: "auto",
@@ -210,13 +212,13 @@ class _ProjectCard extends PureComponent<Props, State> {
           <Grid container spacing={3}>
             <Grid item xs>
               <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                <Typography  variant="subtitle1"gutterBottom>
                   {this.props.date}
                 </Typography>
-                <Typography variant="h5" component="h2">
+                <Typography  variant="h6" gutterBottom>
                   {this.props.title}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
+                <Typography variant="subtitle1" color="textSecondary">
                   {this.props.subtitle}
                 </Typography>
 

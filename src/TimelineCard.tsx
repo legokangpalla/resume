@@ -7,46 +7,8 @@ import Typography from '@material-ui/core/Typography';
 
 
 const styles = (theme: Theme) => createStyles({
-  date: {
-    fontSize: 16,
-    fontWeight: 700,
-    lineHeight: 1,
-    textAlign: 'center',
-    marginBottom: 0,
-    // color: theme.palette.primary[ 500 ],
-    marginTop: 10
-  },
-  header3: {
-    color: '#414141',
-    fontSize: 22,
-    fontWeight: 400,
-    lineHeight: 1.1,
-    textAlign: 'center',
-    marginBottom: 0,
-    marginToo: 0
-  },
-  header4: {
-    color: '#878787',
-    fontSize: 13,
-    fontWeight: 400,
-    lineHeight: 1.1,
-    textTransform: 'uppercase',
-    textAlign: 'center',
-    marginBottom: 30,
-  },
-  description: {
-    wordWrap: 'break-word',
-    width: '100%'
-  },
   container: {
     align: "center"
-  },
-
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
   },
 });
 
@@ -76,16 +38,16 @@ class TimelineCard extends PureComponent<Props> {
 
       <Grid className={classes.container} container direction="column" spacing={0}>
 
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography  variant="subtitle1" gutterBottom>
           {year}
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h6" >
           {company}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography variant="subtitle1">
           {title}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography variant="body1" color="textSecondary">
           {
             description.split("\n").map(function(item, idx) {
                 return (
