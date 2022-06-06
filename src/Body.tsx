@@ -159,6 +159,9 @@ const sensr = {
   imgSrc: weddingThumb,
   link: "https://www.seoulrobotics.org/sensr-perception-software",
   languages: [Language.Cpp, Language.Python],
+  mediaInfo: [
+    { type: Mediatype.img, src: require("./resources/projects/SENSR/SENSR_0.webp").default as string, desc: "Visualizer" }
+  ]
 }
 
 const hixSite ={
@@ -295,26 +298,25 @@ class Body extends PureComponent<Props> {
               <Timeline experiences={careerData}></Timeline>
               <SectionHeader title="Projects"/>
               <ProjectCard {...sensr}>
-                <Grid container spacing={3}>
-                  <Grid item xs={6}>
-                    <Grid direction={'column'} >
-                      <img src={require("./resources/projects/SENSR/SENSR_0.webp").default} className={classes.media} />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h5" component="h2" className={classes.bodyTxt} color="textPrimary">
-                      Role: Software Engineer<br />
-                      Product: 3D perception software for autonomous driving and infrastructure<br />
+                <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
+                  {toPara(
+                    `
+                    Role: Software Engineer
+                    Product: 3D perception software for autonomous driving and infrastructure
+                    `
+                  )}
+                </Typography>  
+                <Typography variant="body1" className={classes.bulletPts} color="textPrimary">
+                  {toLi(
+                   `
+                    3D perception software for computational analysis of LIDAR, CAN, IMU data.
+                      It's a distributed system based on multiple computational and visualization nodes + various sensors.
+                      Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.
+                      Also worked on nanosecond accurate distributed system time sync solution for sensors and computational nodes.
+                    `
+                  )}
 
-                    </Typography>
-                    <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
-                      3D perception software for computational analysis of LIDAR, CAN, IMU data.<br /><br />
-                      It's a distributed system based on multiple computational and visualization nodes + various sensors.<br /><br />
-                      Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.<br /><br />
-                      Also worked on nanosecond accurate distributed system time sync solution for sensors and computational nodes.<br /><br />
-                    </Typography>
-                  </Grid>
-                </Grid>
+                </Typography>               
               </ProjectCard>
               <ProjectCard {...c10}>
                 <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
