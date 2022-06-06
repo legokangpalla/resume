@@ -21,15 +21,16 @@ const styles = (theme: Theme) => createStyles({
 
 
 interface Props extends WithStyles<typeof styles> {
-  barClass: string
+  barClass: string,
+  barHeight: number
 }
 
 class VerticalBar extends PureComponent<Props> {
   render () {
-    const {classes, barClass} = this.props;
+    const {classes, barClass, barHeight} = this.props;
     const barClassName = classes.bar + " " +barClass;
       return (
-        <div className={barClassName}/>
+        <div style={{ height: barHeight}} className={barClassName}/>
       )
   }
 }

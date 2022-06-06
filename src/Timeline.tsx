@@ -18,7 +18,7 @@ const styles = (theme: Theme) => createStyles({
       },
   },
   barClass: {
-      height: 100,
+      // height: 200,
       top: 80,
       [theme.breakpoints.down('md')]: {
           height: 300,
@@ -55,7 +55,8 @@ export type EventInfo = {
 
 
 interface Props extends WithStyles<typeof styles> {
-    experiences: Array<EventInfo>
+  experiences: Array<EventInfo>,
+  barLength: number
 }
 
 
@@ -87,7 +88,7 @@ class _Timeline extends PureComponent<Props> {
           {/* <SectionTitle title='Work Experience'/> */}
           <div style={{position: 'relative'}}>
               <div className={classes.clear}>
-                  <VerticalBar barClass={classes.barClass}/>
+                  <VerticalBar barClass={classes.barClass} barHeight={this.props.barLength}/>
                   {
                       this.props.experiences && this.props.experiences.map(this._renderCard)
                   }

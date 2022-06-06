@@ -156,8 +156,7 @@ const sensr = {
   title: "SENSR",
   subtitle: "Seoul Robotics 3D perception software for driving automation and smart city.",
   date: "2021~",
-  imgSrc: weddingThumb,
-  link: "https://www.seoulrobotics.org/sensr-perception-software",
+  imgSrc: sensrThumb,
   languages: [Language.Cpp, Language.Python],
   mediaInfo: [
     { type: Mediatype.img, src: require("./resources/projects/SENSR/SENSR_0.webp").default as string, desc: "Visualizer" }
@@ -293,9 +292,9 @@ class Body extends PureComponent<Props> {
               <Button size="small" href="tel:+821099788577">+821099788577</Button>
 
               <SectionHeader title="Education"/>
-              <Timeline experiences={educationData}></Timeline>
+              <Timeline experiences={educationData} barLength={100}></Timeline>
               <SectionHeader title="Career"/>
-              <Timeline experiences={careerData}></Timeline>
+              <Timeline experiences={careerData} barLength={500}></Timeline>
               <SectionHeader title="Projects"/>
               <ProjectCard {...sensr}>
                 <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
