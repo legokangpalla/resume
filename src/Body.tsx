@@ -17,6 +17,7 @@ import efThumb from './resources/icons/ozEFormIcon.png';
 import ffThumb from './resources/projects/Farflung/img0.png';
 import w10Thumb from './resources/projects/Farflung/wip.svg';
 import weddingThumb from './resources/icons/weddingIcon.gif';
+import sensrThumb from './resources/icons/SENSRIcon.png';
 
 
 
@@ -121,6 +122,15 @@ const ds ={
 
   ]
 }
+const sensr = {
+  title: "SENSR",
+  subtitle: "Seoul Robotics 3D perception software for driving automation and smart city.",
+  date: "2021~",
+  imgSrc: weddingThumb,
+  link: "https://www.seoulrobotics.org/sensr-perception-software",
+  languages: [Language.Cpp, Language.Python],
+}
+
 const hixSite ={
   title: "Hix.co.kr",
   subtitle: "Company site with OAuth, product authentication, automated billing",
@@ -191,6 +201,15 @@ class Body extends PureComponent<Props> {
         +"-Developed company site + auth server\n"
         +"-Developed in-company tools\n"
         +"-Ran circuit analysis, hardware acqusition\n"
+      },
+
+      {
+        subtitle: "Seoul Robotics", time: "2021-, Seoul, Korea", title: "Software Engineer",
+        description:
+          "-Developed self-driving vision software\n"
+          + "-Lidar computer vision and recognition application for driving automation\n"
+          + "-Accurate time synchronization with GPS and software based solutions\n"
+          + "-Licensing system\n"
       }
     ];
 
@@ -227,6 +246,28 @@ class Body extends PureComponent<Props> {
               <SectionHeader title="Career"/>
               <Timeline experiences={careerData}></Timeline>
               <SectionHeader title="Projects"/>
+              <ProjectCard {...sensr}>
+                <Grid container spacing={3}>
+                  <Grid item xs={6}>
+                    <Grid direction={'column'} >
+                      <img src={require("./resources/projects/SENSR/SENSR_0.webp").default} className={classes.media} />
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography variant="h5" component="h2" className={classes.bodyTxt} color="textPrimary">
+                      Role: Software Engineer<br />
+                      Product: 3D perception software for autonomous driving and infrastructure<br />
+
+                    </Typography>
+                    <Typography variant="h6" className={classes.bodyTxt} color="textPrimary">
+                      3D perception software for computational analysis of LIDAR, CAN, IMU data.<br /><br />
+                      It's a distributed system based on multiple computational and visualization nodes + various sensors.<br /><br />
+                      Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.<br /><br />
+                      Also worked on nanosecond accurate distributed system time sync solution for sensors and computational nodes.<br /><br />
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </ProjectCard>
               <ProjectCard {...c10}>
                 <Grid container spacing={3}>
                   <Grid  item xs={6}>
