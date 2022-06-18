@@ -6,6 +6,14 @@ import ResumeAppBar from './ResumeAppBar';
 import Body from './Body';
 import { createTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/styles';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+
+
+
 const theme = createTheme({
   palette: {
     type: 'dark'
@@ -70,12 +78,18 @@ class MainApp extends PureComponent<Props, State> {
     const appliedTheme = createTheme(this.state.isDarkMode ? dark : light);
     const classes = this.props.classes;
     return (
-      <ThemeProvider theme={appliedTheme}>
-        <Container className={classes.root}>
-          <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
-          <Body />
-        </Container>
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider theme={appliedTheme}>
+          <Container className={classes.root}>
+            <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
+            <Routes>
+              <Route path="/" element={<Body show_contacts={true} />} />
+              <Route path="/no_contacts" element={<Body show_contacts={false} />} />
+
+            </Routes>
+          </Container>
+        </ThemeProvider>
+      </Router>
     );
   }
 }

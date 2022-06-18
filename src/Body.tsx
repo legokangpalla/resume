@@ -21,7 +21,6 @@ import sensrThumb from './resources/icons/SENSRIcon.png';
 import CSS from 'csstype';
 
 
-
 const styles = (theme: Theme) => createStyles({
     container: {
         // marginLeft: '20px',
@@ -118,6 +117,7 @@ function toLi(text: string)
 
 
 interface Props extends WithStyles<typeof styles> {
+  show_contacts : boolean
 }
 
 //argh move this to db sometime later...
@@ -230,8 +230,27 @@ class Body extends PureComponent<Props> {
         </div>
       );
     }
+  _renderContact = (show : boolean) => {
+    if (show){
+      return (
+        <div>
+          <Button size="small" href="https://bitbucket.org/legokangpalla/">bitbucket.org/legokangpalla</Button>
+          <Button size="small" href="https://github.com/legokangpalla">github.com/legokangpalla</Button>
+          <Button size="small" href="legokangpalla@gmail.com">legokangpalla@gmail.com</Button>
+          <Button size="small" href="https://www.linkedin.com/in/john-kang-8a37a453/">linkedin</Button>
+          <Button size="small" href="tel:+821099788577">+821099788577</Button>
+        </div>
+      );
+    }else{
+      return (
+        <div></div>
+      );
+    }
+  }
 
-    render () {
+  render () {
+    let show_contacts = this.props.show_contacts;
+
     const careerData: EventInfo[] = [
       {subtitle: "FORCS", time: "2016-2018, Seoul, Korea", title:"Native/Hybrid Application Developer",
         description: 
@@ -285,12 +304,7 @@ class Body extends PureComponent<Props> {
                 Currently working and living in Daejon, South Korea.`
                 )}
               </Typography> 
-              <Button size="small" href="https://bitbucket.org/legokangpalla/">bitbucket.org/legokangpalla</Button>
-              <Button size="small" href="https://github.com/legokangpalla">github.com/legokangpalla</Button>
-              <Button size="small" href="legokangpalla@gmail.com">legokangpalla@gmail.com</Button>
-              <Button size="small" href="https://www.linkedin.com/in/john-kang-8a37a453/">linkedin</Button>
-              <Button size="small" href="tel:+821099788577">+821099788577</Button>
-
+              {this._renderContact(show_contacts)}
               <SectionHeader title="Education"/>
               <Timeline experiences={educationData} barLength={100}></Timeline>
               <SectionHeader title="Career"/>
