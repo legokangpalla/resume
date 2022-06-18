@@ -154,7 +154,7 @@ const ds ={
 }
 const sensr = {
   title: "SENSR",
-  subtitle: "Seoul Robotics 3D perception software for driving automation and smart city.",
+  subtitle: "Seoul Robotics 3D perception software for driving automation and smart city",
   date: "2021~",
   imgSrc: sensrThumb,
   languages: [Language.Cpp, Language.Python],
