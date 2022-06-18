@@ -248,7 +248,7 @@ class Body extends PureComponent<Props> {
         +"-Developed dental CAD/slicer\n"
         +"-Developed company site + auth server\n"
         +"-Developed in-company tools\n"
-        +"-Ran circuit analysis, hardware acqusition\n"
+        +"-Ran circuit analysis, hardware acquisition\n"
       },
 
       {
