@@ -7,9 +7,10 @@ import Body from './Body';
 import { createTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/styles';
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
-  Routes
+  Routes,
+  HashRouter
 } from "react-router-dom";
 
 
@@ -78,18 +79,17 @@ class MainApp extends PureComponent<Props, State> {
     const appliedTheme = createTheme(this.state.isDarkMode ? dark : light);
     const classes = this.props.classes;
     return (
-      <Router>
+      <BrowserRouter>
         <ThemeProvider theme={appliedTheme}>
           <Container className={classes.root}>
             <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
             <Routes>
-              <Route path="/" element={<Body show_contacts={true} />} />
-              <Route path="/no_contacts" element={<Body show_contacts={false} />} />
-
+              <Route path="/resume" element={<Body show_contacts={true} />} />
+              <Route path="/resume/no_contacts" element={<Body show_contacts={false} />} />
             </Routes>
           </Container>
         </ThemeProvider>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
