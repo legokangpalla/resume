@@ -79,7 +79,7 @@ class MainApp extends PureComponent<Props, State> {
     const appliedTheme = createTheme(this.state.isDarkMode ? dark : light);
     const classes = this.props.classes;
     return (
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={appliedTheme}>
           <Container className={classes.root}>
             <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
@@ -89,7 +89,7 @@ class MainApp extends PureComponent<Props, State> {
             </Routes>
           </Container>
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
