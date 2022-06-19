@@ -10,7 +10,7 @@ import {
   BrowserRouter,
   Route,
   Routes,
-  HashRouter
+  HashRouter,
 } from "react-router-dom";
 
 
@@ -78,18 +78,19 @@ class MainApp extends PureComponent<Props, State> {
   render() {
     const appliedTheme = createTheme(this.state.isDarkMode ? dark : light);
     const classes = this.props.classes;
+    console.log(process.env.PUBLIC_URL);
     return (
-      <HashRouter>
-        <ThemeProvider theme={appliedTheme}>
-          <Container className={classes.root}>
-            <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
+      <ThemeProvider theme={appliedTheme}>
+        <Container className={classes.root}>
+          <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
-              <Route path="/resume" element={<Body show_contacts={true} />} />
-              <Route path="/resume/no_contacts" element={<Body show_contacts={false} />} />
+              <Route path="/" element={<Body show_contacts={true} />} />
+              <Route path="/no_contacts" element={<Body show_contacts={false} />} />
             </Routes>
-          </Container>
-        </ThemeProvider>
-      </HashRouter>
+          </BrowserRouter>
+        </Container>
+      </ThemeProvider>
     );
   }
 }
