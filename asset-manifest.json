@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/resume/static/css/main.4a3d0f2d.chunk.css",
-    "main.js": "/resume/static/js/main.c6530b52.chunk.js",
-    "main.js.map": "/resume/static/js/main.c6530b52.chunk.js.map",
+    "main.css": "/resume/static/css/main.aa7ea440.chunk.css",
+    "main.js": "/resume/static/js/main.2ceed429.chunk.js",
+    "main.js.map": "/resume/static/js/main.2ceed429.chunk.js.map",
     "runtime-main.js": "/resume/static/js/runtime-main.7f8ad7ec.js",
     "runtime-main.js.map": "/resume/static/js/runtime-main.7f8ad7ec.js.map",
-    "static/js/2.6371754f.chunk.js": "/resume/static/js/2.6371754f.chunk.js",
-    "static/js/2.6371754f.chunk.js.map": "/resume/static/js/2.6371754f.chunk.js.map",
+    "static/js/2.ae1c9992.chunk.js": "/resume/static/js/2.ae1c9992.chunk.js",
+    "static/js/2.ae1c9992.chunk.js.map": "/resume/static/js/2.ae1c9992.chunk.js.map",
     "static/js/3.9ffd46c7.chunk.js": "/resume/static/js/3.9ffd46c7.chunk.js",
     "static/js/3.9ffd46c7.chunk.js.map": "/resume/static/js/3.9ffd46c7.chunk.js.map",
     "index.html": "/resume/index.html",
-    "static/css/main.4a3d0f2d.chunk.css.map": "/resume/static/css/main.4a3d0f2d.chunk.css.map",
-    "static/js/2.6371754f.chunk.js.LICENSE.txt": "/resume/static/js/2.6371754f.chunk.js.LICENSE.txt",
+    "static/css/main.aa7ea440.chunk.css.map": "/resume/static/css/main.aa7ea440.chunk.css.map",
+    "static/js/2.ae1c9992.chunk.js.LICENSE.txt": "/resume/static/js/2.ae1c9992.chunk.js.LICENSE.txt",
     "static/media/C10Icon.6e15c803.png": "/resume/static/media/C10Icon.6e15c803.png",
     "static/media/SENSR_0.webp": "/resume/static/media/SENSR_0.f805dd3b.webp",
     "static/media/ds0.PNG": "/resume/static/media/ds0.17b54882.PNG",
@@ -29,12 +29,12 @@
     "static/media/w1.PNG": "/resume/static/media/w1.9deff4cc.PNG",
     "static/media/web_menu.jpg": "/resume/static/media/web_menu.a973dfc5.jpg",
     "static/media/weddingIcon.406e4849.gif": "/resume/static/media/weddingIcon.406e4849.gif",
-    "static/media/wip.e894b5b9.svg": "/resume/static/media/wip.e894b5b9.svg"
+    "static/media/wip.ac095f73.svg": "/resume/static/media/wip.ac095f73.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7f8ad7ec.js",
-    "static/js/2.6371754f.chunk.js",
-    "static/css/main.4a3d0f2d.chunk.css",
-    "static/js/main.c6530b52.chunk.js"
+    "static/js/2.ae1c9992.chunk.js",
+    "static/css/main.aa7ea440.chunk.css",
+    "static/js/main.2ceed429.chunk.js"
   ]
 }
