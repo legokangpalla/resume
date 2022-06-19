@@ -1,6 +1,7 @@
 {
   "homepage": "https://legokangpalla.github.io/resume",
   "name": "resume-site",
+  "build": "react-scripts build && cp build/index.html build/404.html",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
