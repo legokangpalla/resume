@@ -83,12 +83,12 @@ class MainApp extends PureComponent<Props, State> {
       <ThemeProvider theme={appliedTheme}>
         <Container className={classes.root}>
           <ResumeAppBar lightOn={this.state.isDarkMode} onLightOn={this._toggleLight} />
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <HashRouter>
             <Routes>
-              <Route path="/" element={<Body show_contacts={true} />} />
               <Route path="/no_contacts" element={<Body show_contacts={false} />} />
+              <Route path="*" element={<Body show_contacts={true} />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </Container>
       </ThemeProvider>
     );
