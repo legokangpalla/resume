@@ -152,6 +152,17 @@ const ds ={
     {type: Mediatype.img, src: require("./resources/projects/DentSlicer/ds0.PNG").default as string, desc: "Socket based license instance."},
   ]
 }
+const sensr_2 = {
+  title: "Undisclosed project",
+  subtitle: "Next generation 3D perception and control framework for Seoul Robotics",
+  date: "2024~",
+  imgSrc: sensrThumb,
+  languages: [Language.Cpp, Language.Typescript, Language.AUTOSAR],
+  mediaInfo: [
+    { type: Mediatype.img, src: require("./resources/projects/SENSR/SENSR_0.webp").default as string, desc: "Visualizer" }
+  ]
+}
+
 const sensr = {
   title: "SENSR",
   subtitle: "Seoul Robotics 3D perception software for driving automation and smart city",
@@ -277,6 +288,8 @@ class Body extends PureComponent<Props> {
           + "-Lidar computer vision and recognition application for driving automation\n"
           + "-Accurate time synchronization with GPS and software based solutions\n"
           + "-Licensing system\n"
+          + "-In-house code generator and RPC/IDL generation\n"
+          + "-Functional safety(ISO-26262) ASIL-D with Autosar guidelines adapted for distributed system\n"
       }
     ];
 
@@ -325,7 +338,8 @@ class Body extends PureComponent<Props> {
                     3D perception software for computational analysis of LIDAR, CAN, IMU data.
                       It's a distributed system based on multiple computational and visualization nodes + various sensors.
                       Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.
-                      Also worked on nanosecond accurate distributed system time sync solution for sensors and computational nodes.
+                      Nanosecond accurate distributed system time sync solution for sensors and computational nodes.
+                      Worked on transition to fully functionally safe framework with automated code generations and framework in compliance with Autosar standard.
                     `
                   )}
 
@@ -497,6 +511,8 @@ class Body extends PureComponent<Props> {
               {this._renderSkill("Profiling", 80)}
               {this._renderSkill("TDD", 90)}
               {this._renderSkill("Test engineering", 80)}
+              {this._renderSkill("Functional safety(ISO-26262)", 50)}
+
 
 
 

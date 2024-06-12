@@ -121,7 +121,7 @@ export enum Language {
   UE4= "UE4",
   SPICE="SPICE",
   GLSL = "GLSL",
-
+  AUTOSAR = "AUTOSAR",
 }
 interface MediaInfo{
  type: Mediatype,
