@@ -323,6 +323,28 @@ class Body extends PureComponent<Props> {
               <SectionHeader title="Career"/>
               <Timeline experiences={careerData} barLength={500}></Timeline>
               <SectionHeader title="Projects"/>
+              <ProjectCard {...sensr_2}>
+                <Typography variant="subtitle1" className={classes.paragraph} color="textSecondary">
+                  {toPara(
+                    `
+                    Role: Software Engineer
+                    Product: Functionally safe framework for infrastructure based autonomous driving
+                    `
+                  )}
+                </Typography>
+                <Typography variant="body1" className={classes.bulletPts} color="textPrimary">
+                  {toLi(
+                    `
+                    Ground-up rebuild of the core framework with focus on both scalable microservice design and functional safety.
+                      Framework to include control aspect of the autonomous driving with compliance to ISO26262-ASIL-D level functional safety.
+                      Various code generators built fully in-house to accomodate various limitations of functional safety guidelines.
+                      Fully compliant RPC and IDL implementations for better error handling and deterministic failure modes.
+                      Focus on distributed system with increased support for various network configurations and security limitations.
+                    `
+                  )}
+
+                </Typography>
+              </ProjectCard>
               <ProjectCard {...sensr}>
                 <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
                   {toPara(
@@ -339,7 +361,6 @@ class Body extends PureComponent<Props> {
                       It's a distributed system based on multiple computational and visualization nodes + various sensors.
                       Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.
                       Nanosecond accurate distributed system time sync solution for sensors and computational nodes.
-                      Worked on transition to fully functionally safe framework with automated code generations and framework in compliance with Autosar standard.
                     `
                   )}
 
