@@ -533,6 +533,7 @@ class Body extends PureComponent<Props> {
               {this._renderSkill("C++", 100)}
               {this._renderSkill("Rust", 50)}
               {this._renderSkill("CMake", 90)}
+              {this._renderSkill("Protobuf", 90)}
               {this._renderSkill("WebAssembly/WebGL", 50)}
               {this._renderSkill("Dart/Flutter", 90)}
               {this._renderSkill("OpenGL/GLSL", 90)}
