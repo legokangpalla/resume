@@ -224,7 +224,7 @@ const farflung ={
   imgSrc: ffThumb,
   languages: [Language.Cpp, Language.UE4],
   mediaInfo: [
-    {type: Mediatype.ytb, src: "https://www.youtube.com/embed/glakdBOnvLw", desc: "Galaxy generation from surrogate model."},
+    {type: Mediatype.ytb, src: "https://www.you tube.com/embed/glakdBOnvLw", desc: "Galaxy generation from surrogate model."},
   ]
 }
 
@@ -268,13 +268,13 @@ class Body extends PureComponent<Props> {
         "-Developed Oz Reporting Solutions for UWP\n"
         +"-Developed Android NDK client modules\n"
         +"-Developed native CFF font subsetting/embedding library\n"
-        +"-Developed hybrid(webview) application framework for crossplatform UI\n"
+        +"-Developed hybrid(webview) application framework for cross-platform UI\n"
         +"-Developed and maintained CV algorithm for document scanning and analysis\n"
       },
 
       {subtitle: "Hix", time: "2019-2021, Daejon, Korea", title:"PM, Software Engineer, Electrical Engineer",
         description: 
-        "-Developed firmwares for 3D printers and washers\n"
+        "-Developed firmware for 3D printers and washers\n"
         +"-Developed dental CAD/slicer\n"
         +"-Developed company site + auth server\n"
         +"-Developed in-company tools\n"
@@ -311,7 +311,7 @@ class Body extends PureComponent<Props> {
               <Typography variant="body1" className={classes.paragraph} color="textPrimary" paragraph>
                 {toPara(
                 `Hi, I'm a software engineer specializing in 3D graphics, high performance computing, native/web/mobile development.
-                My approach to engineering is minimalism with focus in longevity and ease of maintanence, leveraging both open-source community and professional tools to minimize project scope.
+                My approach to engineering is minimalism with focus in longevity and ease of maintenance, leveraging both open-source community and professional tools to minimize project scope.
                 Striving for balance in practicality and performance, meticulously profiling projects for data-driven optimization process.
                 I believe each project I produce is an asset not a technical debt to the company.
                 Currently working and living in Daejon, South Korea.`
@@ -337,9 +337,11 @@ class Body extends PureComponent<Props> {
                     `
                     Ground-up rebuild of the core framework with focus on both scalable microservice design and functional safety.
                       Framework to include control aspect of the autonomous driving with compliance to ISO26262-ASIL-D level functional safety.
-                      Various code generators built fully in-house to accomodate various limitations of functional safety guidelines.
-                      Fully compliant RPC and IDL implementations for better error handling and deterministic failure modes.
+                      Various code generators built fully in-house to accommodate various limitations of functional safety guidelines.
+                      Implemented fully compliant RPC and IDL implementations for better error handling and deterministic failure modes.
                       Focus on distributed system with increased support for various network configurations and security limitations.
+                      Designed and built multiple services including data aggregation service, sensor control service, license service, and calibration services.
+                      Added ADR(architectural decision recordings), C4 modelling, and draft reviewing processes for improving software architecture methodologies.
                     `
                   )}
 
@@ -358,9 +360,12 @@ class Body extends PureComponent<Props> {
                   {toLi(
                    `
                     3D perception software for computational analysis of LIDAR, CAN, IMU data.
-                      It's a distributed system based on multiple computational and visualization nodes + various sensors.
+                      Improve existing vehicle recognition and tracking pipeline.
+                      Implemented distributed system based on multiple computational and visualization nodes + various sensors.
+                      Worked on designing and implementing scalable distributed systems for large factories ie) BMW.
+                      Also includes sub-nanosecond accurate automatically deploying time sync services.
                       Worked on visualizer for pointcloud data, framework for analysis suites, instance-based licensing server.
-                      Nanosecond accurate distributed system time sync solution for sensors and computational nodes.
+                      
                     `
                   )}
 
@@ -370,7 +375,7 @@ class Body extends PureComponent<Props> {
                 <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
                   {toPara(
                     `
-                    Role: PM, senior engineer.
+                    Role: PM, supporting engineer for the project.
                     Product: firmware for 3D printer.
                     `
                   )}
@@ -378,7 +383,7 @@ class Body extends PureComponent<Props> {
                 <Typography variant="body1" className={classes.bulletPts} color="textPrimary">
                   {toLi(
                    `
-                   Qt application framework running on top of X server with a seperate MCU program to handle motor control and various peripheral activities.
+                   Qt application framework running on top of X server with a separate MCU program to handle motor control and various peripheral activities.
                     Both C10 project and Dentslicer projects share many of the basic UI elements which delegated most of control functionalities to C++ for increased static check and runtime safety. 
                     Included a web server and basic IOT functionality to allow remote usage and better interfacing with a user PC. 
                     IOT functionality is also used for over-the-air updates and updating resin database.
@@ -394,7 +399,7 @@ class Body extends PureComponent<Props> {
                 <Typography variant="subtitle1"  className={classes.paragraph} color="textSecondary">
                   {toPara(
                     `
-                    Role: PM, main engineer.
+                    Role: PM, main engineer for the project.
                     Product: dental CAD
                     `
                   )}
@@ -419,7 +424,7 @@ class Body extends PureComponent<Props> {
                     Clipping algorithms and wound-count used for graphical slice analysis, later replaced by GPU accelerated uniform sampling.
                     BVH and AABB for general purpose accelerators, used pretty much everywhere.
                     Multisampling and random dithering for both anti-aliasing and degenerative case handling.
-                    Greedy mesh repair algorithm(uses accelerator for more practical performace).
+                    Greedy mesh repair algorithm(uses accelerator for more practical performance).
                     Signed Distance Field for generating uniform sampled grid.
                     Marching cubes and poisson reconstruction for both repair, CSG, and offsetting.
                     Automated differentiation library for better degenerate handling and performance.
@@ -433,7 +438,7 @@ class Body extends PureComponent<Props> {
 
                   {toPara(
                     `
-                    Role: PM, senior engineer.
+                    Role: PM, main engineer for the project.
                     Company site with OAuth based social log-in.
                     `
                   )}
@@ -453,7 +458,7 @@ class Body extends PureComponent<Props> {
                 <Typography variant="subtitle1" className={classes.paragraph} color="textSecondary">
                   {toPara(
                     `
-                    Role: PM, senior engineer.
+                    Role: PM, main engineer for the prototype.
                     Product: firmware for 3D printer washer.
                     `
                   )}
@@ -462,9 +467,9 @@ class Body extends PureComponent<Props> {
                   {toLi(
                    `
                     Pretty much what I think C10 firmware should have been, based on experiences from C10 of course.
-                    Most funtionalities are contained within application launcher(customized flutter engine) and the main application, even touch calibration data itself.
+                    Most functionalities are contained within application launcher(customized flutter engine) and the main application, even touch calibration data itself.
                     Very little kernel-level functions are used, even periphery.
-                    MCU board has been removed, to be replaced with cheap H-bridge circuit and multi-channel MOSFETs(this might not even be neccessary).
+                    MCU board has been removed, to be replaced with cheap H-bridge circuit and multi-channel MOSFETs(this might not even be necessary).
                     Remaining GPIO on our SBC board(same as C10) and even hardware PWMs have been plenty for all our purposes.
                     Working with Dart and Flutter have been immensely pleasurable.
                     `
@@ -517,26 +522,29 @@ class Body extends PureComponent<Props> {
               <SectionHeader title="Skills"/>
               {this._renderSkill("English", 100)}
               {this._renderSkill("Korean", 100)}
+              {this._renderSkill("Static code analysis", 90)}
+              {this._renderSkill("Profiling", 80)}
+              {this._renderSkill("TDD", 90)}
+              {this._renderSkill("Test engineering", 80)}
+              {this._renderSkill("Functional safety(ISO-26262)", 70)}
+              {this._renderSkill("SPICE/EE", 40)}
+
+              <SectionHeader title="Frameworks and Programming Languages"/>
               {this._renderSkill("C++", 100)}
+              {this._renderSkill("Rust", 50)}
               {this._renderSkill("CMake", 90)}
               {this._renderSkill("WebAssembly/WebGL", 50)}
               {this._renderSkill("Dart/Flutter", 90)}
               {this._renderSkill("OpenGL/GLSL", 90)}
-              {this._renderSkill("SPICE/EE", 40)}
+              {this._renderSkill("webgpu/wgpu", 20)}
+              {this._renderSkill("Docker", 70)}
+              {this._renderSkill("Kubernetes", 30)}
+              {this._renderSkill("Docker-compose", 30)}
               {this._renderSkill("Typescript", 90)}
               {this._renderSkill("Javascript", 60)}
               {this._renderSkill("Qt", 90)}
               {this._renderSkill("React", 70)}
               {this._renderSkill("Python/Django", 50)}
-              {this._renderSkill("Static code analysis", 90)}
-              {this._renderSkill("Profiling", 80)}
-              {this._renderSkill("TDD", 90)}
-              {this._renderSkill("Test engineering", 80)}
-              {this._renderSkill("Functional safety(ISO-26262)", 50)}
-
-
-
-
 
               <Box className={classes.endFooter}></Box>
           </Grid>
